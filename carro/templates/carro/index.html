@@ -1,0 +1,28 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2">
+
+    {% for carro in carros  %}
+    
+    <div class="col mb-2">
+        <div class="card">
+          <div class="view overlay">
+            <h2>{{carro.marca}} {{carro.carro_modelo}}</h2>
+            <img class="card-img-top" src="{{carro.picture.url}}" alt="">
+            
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{carro.valor}}</h4>
+            <p class="card-text">{{carro.valor_description}}</p>
+          </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
