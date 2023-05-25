@@ -3,11 +3,14 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 from carro import models
-from .models import Carro, CarroImage
+from .models import Carro, CarroImage, Banner
 
 
 class CarroImageAdmin(admin.StackedInline):
     model = models.CarroImage
+
+class BannerAdmin(admin.StackedInline):
+    model = models.Banner
 
 @admin.register(models.Carro)
 class CarroAdmin(admin.ModelAdmin):
@@ -24,7 +27,8 @@ class CarroAdmin(admin.ModelAdmin):
 
 @admin.register(models.Banner)
 class BannerAdmin(admin.ModelAdmin):
-    list_display = 'imagem', 'titulo'
+    list_display = 'imagem', 'titulo',
+    ordering = 'id',
 
 @admin.register(models.Categoria)
 class CategoriaAdmin(admin.ModelAdmin):

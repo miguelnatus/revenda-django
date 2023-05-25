@@ -13,6 +13,19 @@ class Marca(models.Model):
     def __str__(self) -> str:
         return self.name
     
+class Banner(models.Model):
+    imagem = models.ImageField(blank=True, upload_to='picture/%Y/%m')
+    titulo = models.CharField(max_length=50, null=True)
+    texto = models.TextField(blank=True, null=True)
+
+
+    def __str__(self):
+        return f'{self.imagem} {self.titulo}'
+
+    class Meta:
+        verbose_name = 'Banner'
+        verbose_name_plural = 'Banners'
+    
 
 
 class Carro(models.Model):
@@ -51,10 +64,5 @@ class CarroImage(models.Model):
     def __str__(self):
         return self.carro.carro_modelo
 
-class Banner(models.Model):
-    imagem = models.ImageField(blank=True, upload_to='picture/%Y/%m')
-    titulo = models.CharField(max_length=50, null=True)
-    texto = models.TextField(blank=True, null=True)
 
-    def __str__(self) -> str:
-        return f'{self.imagem} {self.titulo}'
+
