@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from djmoney.models.fields import MoneyField
+import mysql.connector
 
 
 class Categoria(models.Model):
